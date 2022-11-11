@@ -1,13 +1,12 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import './App.css';
 import {Body} from "./components/body";
 import BodySetting from "./components/BodySetting/BodySetting";
-import {BrowserRouter, NavLink, Route, Routes} from "react-router-dom";
-import s from "./components/BodySetting/BodySetting.module.css";
+import {BrowserRouter, Navigate, Route, Routes} from "react-router-dom";
 
 export type stateType = {
     count: number,
-    maxCount: number,
+    maxCount: number
     minCount: number
 }
 
@@ -43,9 +42,21 @@ function App() {
 
     let [state, setState] = useState<stateType>({
         count: 0,
-        maxCount: 0,
+        maxCount: 5,
         minCount: 0
     })
+
+
+    useEffect(() => {
+        let valueAsStr = localStorage.getItem('titleMax')
+        let value2AsStr = localStorage.getItem('titleMin')
+        if (valueAsStr) {
+            setState({...state, maxCount: JSON.parse(valueAsStr)})
+        } else if (value2AsStr ) {
+            setState({...state, minCount: JSON.parse(value2AsStr)})
+        }
+    }, [])
+
 
     const dispatch = (action: actionType) => {
         switch (action.type) {
@@ -61,7 +72,6 @@ function App() {
             case 'max': {
                 return setState({...state, maxCount: state.maxCount = action.maxValue})
             }
-
         }
     }
 
@@ -69,7 +79,7 @@ function App() {
         <BrowserRouter>
             <div>
                 <Routes>
-                    <Route path='/*' element={<Body State={state} dispatch={dispatch}/>}/>
+                    <Route path='/' element={<Navigate to={'/Page'}/>}/>
                     <Route path='/Page' element={<Body State={state} dispatch={dispatch}/>}/>
                     <Route path='/Setting' element={<BodySetting State={state} dispatch={dispatch}/>}/>
                 </Routes>

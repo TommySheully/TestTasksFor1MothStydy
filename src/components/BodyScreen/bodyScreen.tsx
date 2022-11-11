@@ -7,7 +7,7 @@ export const BodyScreen = (props: BodyType) => {
 
     return (
                 <div className='BodyScreen'>
-                    <p className={props.State.count === 5 ? 'BodyText' : ''}>{props.State.count}</p>
+                    <p className={props.State.count === props.State.maxCount ? 'BodyText' : ''}>{props.State.count}</p>
                 </div>
     );
 }

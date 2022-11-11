@@ -4,9 +4,6 @@ import {BodyScreen} from "./BodyScreen/bodyScreen";
 import {BodyButton} from "./BodyButton/bodyButton";
 import {actionType, stateType} from "../App";
 
-
-
-
 export type BodyType = {
     State: stateType
     dispatch: (action: actionType) => void
