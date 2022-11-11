@@ -1,13 +1,17 @@
 import React, {useState} from 'react';
 import '../Body.css';
-import {incCountAC, reduser, resCountAC} from "../../State/reduser/reduser";
+
 import {BodyType} from "../body";
+import {incAC, resAC} from "../../App";
+import {useNavigate} from "react-router-dom";
+
 
 
 export const BodyButton = (props: BodyType) => {
 
-    const countAddHandler = () => reduser(props.State, incCountAC());
-    const countResetHandler = () => reduser(props.State, resCountAC());
+    const countAddHandler = () => props.dispatch(incAC());
+    const countResetHandler = () => props.dispatch(resAC());
+    let navigate = useNavigate();
 
     return (
         <div className='BodyButton'>
@@ -20,6 +24,11 @@ export const BodyButton = (props: BodyType) => {
                     className='Button'
                     disabled={props.State.count === 0 ? true : false}>
                 reset
+            </button>
+            <button onClick={() => navigate('setting')}
+                    className='Button'
+            >
+                set
             </button>
         </div>
     );

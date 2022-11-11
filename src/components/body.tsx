@@ -2,25 +2,23 @@ import React, {useState} from 'react';
 import './Body.css';
 import {BodyScreen} from "./BodyScreen/bodyScreen";
 import {BodyButton} from "./BodyButton/bodyButton";
-import {StateType} from "../App";
+import {actionType, stateType} from "../App";
+
 
 
 
 export type BodyType = {
-    State: StateType
+    State: stateType
+    dispatch: (action: actionType) => void
 }
 
 export const Body = (props: BodyType) => {
 
     return (
-        <div>
             <div className='Body'>
-                <BodyScreen State={props.State}/>
-                <BodyButton State={props.State}/>
+                <BodyScreen State={props.State} dispatch={props.dispatch}/>
+                <BodyButton State={props.State} dispatch={props.dispatch}/>
             </div>
-
-        </div>
-
     );
 }
 

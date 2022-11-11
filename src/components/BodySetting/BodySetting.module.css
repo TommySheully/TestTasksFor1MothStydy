@@ -4,9 +4,16 @@
     background-color: slategray;
 }
 
+.Input {
+    width: 100px;
+    height: 30px;
+    margin-left: 50px;
+    border-radius: 10px;
+}
+
 .Body {
     text-align: center;
-    width: 530px;
+    width: 330px;
     height: 320px;
 
     position: absolute;
@@ -20,9 +27,10 @@
 }
 
 .BodyScreen {
-    width: 500px;
+    width: 300px;
     height: 200px;
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
     justify-content: center;
     border-radius: 15px;
@@ -32,8 +40,7 @@
     left: 0;
     right: 0;
     margin: 10px auto;
-
-    font-size: 150px;
+    font-size: 28px;
 }
 
 .BodyText {
@@ -41,7 +48,7 @@
 }
 
 .BodyButton {
-    width: 500px;
+    width: 300px;
     height: 80px;
     border-radius: 15px;
     border: 2px solid cyan;
@@ -53,7 +60,7 @@
 }
 
 .Button {
-    width: 130px;
+    width: 300px;
     height: 50px;
     border-radius: 15px;
     border: 2px solid cyan;
