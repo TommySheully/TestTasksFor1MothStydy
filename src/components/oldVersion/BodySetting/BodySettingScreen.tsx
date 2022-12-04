@@ -1,6 +1,6 @@
-import React, {ChangeEvent, useEffect, useState} from 'react';
+import React, {ChangeEvent, useState} from 'react';
 import {BodyType} from "../body";
-import s from './BodySetting.module.css'
+import s from '../../BodySetting.module.css'
 import {NavLink, useNavigate} from "react-router-dom";
 
 export const BodySettingScreen = (props: BodyType) => {
@@ -30,17 +30,13 @@ export const BodySettingScreen = (props: BodyType) => {
         localStorage.setItem('titleMin', JSON.stringify(e.currentTarget.value))
     }
 
-/*    useEffect(()=> {
-        localStorage.setItem('titleMax', JSON.stringify(titleMax))
-        localStorage.setItem('titleMin', JSON.stringify(titleMin))
-    }, [titleMax, titleMin, error])*/
 
     let onClickSettingHandler = () => {
         if (titleMax < titleMin) {
             setError(true)
         } else {
             props.dispatch({type: 'max', maxValue: titleMax})
-            props.dispatch({type: 'start', startValue: titleMin})
+            props.dispatch({type: 'start', minCount: titleMin})
             navigate("page")
         }
     }
@@ -71,7 +67,6 @@ export const BodySettingScreen = (props: BodyType) => {
                     Set
                 </button>
             </NavLink>
-
         </div>
     );
 };

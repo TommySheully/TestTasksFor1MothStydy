@@ -1,8 +1,8 @@
-import React, {useState} from 'react';
-import '../Body.css';
+import React from 'react';
+import '../../Body.css';
 
 import {BodyType} from "../body";
-import {incAC, resAC} from "../../App";
+import {incAC, resAC} from "../../../state/reduser";
 import {useNavigate} from "react-router-dom";
 
 

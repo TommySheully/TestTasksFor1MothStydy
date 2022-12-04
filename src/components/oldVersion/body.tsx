@@ -1,8 +1,8 @@
 import React, {useState} from 'react';
-import './Body.css';
+import '../Body.css';
 import {BodyScreen} from "./BodyScreen/bodyScreen";
 import {BodyButton} from "./BodyButton/bodyButton";
-import {actionType, stateType} from "../App";
+import {actionType, stateType} from "../../state/reduser";
 
 export type BodyType = {
     State: stateType

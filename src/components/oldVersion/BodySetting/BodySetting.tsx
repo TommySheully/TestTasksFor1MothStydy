@@ -1,6 +1,6 @@
 import React from 'react';
 import {BodyType} from "../body";
-import s from './BodySetting.module.css'
+import s from '../../BodySetting.module.css'
 import BodySettingScreen from "./BodySettingScreen";
 
 

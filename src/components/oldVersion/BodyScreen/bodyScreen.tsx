@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import '../Body.css';
+import '../../Body.css';
 import {BodyType} from "../body";
 
 
