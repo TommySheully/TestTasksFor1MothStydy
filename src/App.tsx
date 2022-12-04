@@ -10,9 +10,9 @@ import SettingPage from "./components/SettingPage";
 
 const App = React.memo(() =>{
 
-    const count = useSelector<AppRootStateType, stateType>(state => state.countReducer)
+    const count = useSelector<AppRootStateType, stateType>(state => state)
     const dispatch = useDispatch()
-    console.log('App rend')
+    console.log(count)
 
 return (
     <BrowserRouter>

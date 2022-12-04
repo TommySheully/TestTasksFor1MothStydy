@@ -16,7 +16,6 @@ export type maxACType = ReturnType<typeof maxAC>
 export type setACType = ReturnType<typeof setAC>
 
 
-
 const initialState: stateType = {
     count: 0,
     maxCount: 5,
@@ -45,18 +44,12 @@ export const countReducer = (State = initialState, action: actionType): stateTyp
     }
 }
 
-export const incAC = () => {
-    return {type: 'inc'} as const
-}
-export const resAC = () => {
-    return {type: 'res'} as const
-}
-export const startAC = (newCount: number) => {
-    return {
-        type: 'start',
-        minCount: newCount
-    } as const
-}
+export const incAC = () => ({type: 'inc'} as const)
+export const resAC = () => ({type: 'res'} as const)
+export const startAC = (newCount: number) => ({
+    type: 'start',
+    minCount: newCount
+} as const)
 export const maxAC = (newCount: number) => {
     return {
         type: 'max',

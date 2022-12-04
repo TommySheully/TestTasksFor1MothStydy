@@ -9,7 +9,7 @@ const SettingPage = React.memo((props: propsType) => {
     const onChangedMaxHandler = useCallback((e: ChangeEvent<HTMLInputElement>) =>   props.dispatch(maxAC(+e.currentTarget.value)), [props.dispatch])
     const onChangedMinHandler = useCallback((e: ChangeEvent<HTMLInputElement>) => props.dispatch(startAC(e.currentTarget.valueAsNumber)), [props.dispatch])
     const onClickSettingHandler = useCallback(() => props.dispatch(setAC()), [props.dispatch])
-    const error = () => props.State.minCount > props.State.maxCount
+    const error = props.State.minCount > props.State.maxCount
 
 
     return (
@@ -17,14 +17,14 @@ const SettingPage = React.memo((props: propsType) => {
             <div className={s.BodyScreen}>
                 <>
                     <p className={s.text}>Max value</p>
-                    <input className={error() ? s.InputError : s.Input}
+                    <input className={error ? s.InputError : s.Input}
                            type={"number"}
                            onChange={onChangedMaxHandler}/>
                 </>
-                {error() && <div className={s.BodyText}>Incorrect VALUE</div>}
+                {error && <div className={s.BodyText}>Incorrect VALUE</div>}
                 <>
                     <p>Min value</p>
-                    <input className={error() ? s.InputError : s.Input}
+                    <input className={error ? s.InputError : s.Input}
                            onChange={onChangedMinHandler}
                            type={"number"}
                     />
@@ -35,7 +35,7 @@ const SettingPage = React.memo((props: propsType) => {
                 <NavLink to="/incPage">
                 <button className={s.Button}
                         onClick={onClickSettingHandler}
-                        disabled={error()}>
+                        disabled={error}>
                     Set
                 </button>
             </NavLink>
